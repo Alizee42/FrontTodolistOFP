@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todolist-ofp</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
     <link href="./index.css" rel="stylesheet" />
 </head>
 
@@ -14,15 +22,15 @@
         <input class="add" placeholder="Ajouter une tâche" />
         <div class="add-options">
 
-            <select name="category" id="category-select">
-                <option value="">--Catégorie--</option>
+            <select name="category" id="category-select" class="select">
+                <option value="">Catégorie</option>
                 <option value="Dev">Dev</option>
                 <option value="Design">Design</option>
                 <option value="Administratif">Administratif</option>
                 <option value="Commercial">Commercial</option>
             </select>
-            <select name="priority" id="priority-select">
-                <option value="">--Pioritié--</option>
+            <select name="priority" id="priority-select" class="select">
+                <option value="">Priorité</option>
                 <option value="À planifier">À planifier</option>
                 <option value="Normal">Normal</option>
                 <option value="Urgent">Urgent</option>
@@ -31,8 +39,13 @@
         </div>
         <div class="list">
             <div class="filter">
-                <i class="fa-solid fa-arrow-down-wide-short"></i>
-
+                <select name="status" id="status-select" class="select_status">
+                    <option value="">Status</option>
+                    <option value="À planifier">À planifier</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+            <i class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
             <div class="task">
                 <p>Design : Lorem Ipsum</p>
@@ -44,7 +57,7 @@
                 <p>Dev : Lorem Ipsum</p>
             </div>
             <div class="task">
-                <p>Commercial : Lorem Ipsum</p>
+                <p>Commercial : Lorem Ipsum</p> 
             </div>
         </div>
     </div>

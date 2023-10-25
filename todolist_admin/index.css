@@ -7,10 +7,18 @@ body{
     background-repeat: no-repeat;
     overflow-y: hidden;
     overflow-x: hidden;
+    font-family: Inter;
+}
+
+input:focus, select:focus {
+    border: 2px solid #427A82;
+    /* Changer la couleur de la bordure lorsque l'input est en focus */
+    outline: none;
+    /* Supprimer l'outline (lueur) par défaut sur le focus */
 }
 
 .todolist{
-    width: 50%;
+    width: 40%;
     height: 90%;
     margin: auto;
     display: flex;
@@ -33,9 +41,20 @@ label {
     padding-right: 10px;
 }
 
-select {
-    font-size: 0.9rem;
-    padding: 2px 15px;
+.select {
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: 12px 3rem;
+    box-shadow: 5px 5px 5px black;
+}
+
+.select_status {
+    width: 25%;
+    height: 70%;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    box-shadow: 1.5px 1.5px 1.5px black;
+    cursor: pointer;
 }
 
 .add-options{
@@ -50,10 +69,11 @@ select {
 
 h1{
     color: #FFF;
+    font-style: italic;
 }
 
 .add{
-    height: 50px;
+    height: 60px;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -62,6 +82,8 @@ h1{
     border-radius: 10px;
     padding-left: 10px;
     box-sizing: border-box;
+    box-shadow: inset 2px 2px 5px #00000086;
+    font-size: 1.2rem;
 }
 
 button{
@@ -69,9 +91,16 @@ button{
     width: 30%;
     border-radius: 10px;
     background-color: #427A82;
+    font-size: 1.4rem;
     outline: none;
     border: none;
     color: #FFF;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+}
+
+button:hover {
+    background-color: #550600;
 }
 
 .priority{
@@ -91,11 +120,17 @@ button{
 .task{
     background-color: red;
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 0 10px 10px;
 }
 
 .filter{
-    height: 15%;
-    border: 1px solid black;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    margin-bottom: 60px;
+}
+
+i {
+    font-size: 30px;
+    cursor: pointer;
 }
