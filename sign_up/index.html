@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+
+    <!-- //////////// FONTS \\\\\\\\\\\ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- //////////// CSS \\\\\\\\\\\ -->
+
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="image" alt="collab"></div>
+    <div class="container">
+
+        <!-- //////////// IDENTIFIANTS \\\\\\\\\\\ -->
+
+        <div class="identifiants">
+            <label for="Username">Utilisateur</label>
+            <input type="username">
+            <label for="Email">Email</label>
+            <input type="email">
+            <label for="passe">Mot de passe</label>
+            <input type="password">
+        </div>
+
+        <!-- //////////// REGIONS \\\\\\\\\\\ -->
+
+        <span class="regions">
+            <div class="annecy">
+                <p>Annecy</p><input type="radio" id="annecy" name="ville" value="annecy">
+                <label for="annecy"></label>
+            </div>
+            <div class="lyon">
+                <p>Lyon</p><input type="radio" id="lyon" name="ville" value="lyon">
+                <label for="lyon"></label>
+            </div>
+        </span>
+
+        <!-- //////////// INSCRIPTION \\\\\\\\\\\ -->
+
+        <div class="inscription">
+            <button class="btn">S'inscrire</button>
+            <h2><a href="../sign_in/index.html"">Déjà un compte? Se connecter.</a></h2>
+
+        </div>
+    </div>
+</body>
+
+</html>

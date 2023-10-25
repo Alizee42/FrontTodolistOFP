@@ -1,0 +1,117 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow-y: hidden;
+}
+
+.image {
+    background-image: url("../images/image 1.svg");
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container { 
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*     IDENTIFIANTS    */
+
+.identifiants {
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.identifiants label {
+    margin-bottom: 2%;
+}
+
+.identifiants input {
+    height: 3rem;
+    width: 30rem;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    font-size: 20px;
+    padding: 10px;
+}
+
+input:focus {
+    border: 3px solid #427A82;
+    /* Changer la couleur de la bordure lorsque l'input est en focus */
+    outline: none;
+    /* Supprimer l'outline (lueur) par défaut sur le focus */
+}
+
+/*     REGIONS   */
+
+.regions {
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 30%;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.regions p {
+    margin-right: 10%;
+}
+
+.annecy {
+    display: flex;
+}
+
+.lyon {
+    display: flex;
+}
+
+/*     INSCRIPTION   */
+
+.inscription {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.inscription .btn {
+    width: 25rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-color: #427A82;
+    color: #FFF;
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.781);
+}
+
+.inscription .btn:hover {
+    background-color: #550600;
+}
+
+/*     H2    */
+
+h2 {
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 a:hover {
+    color: #550600;
+}
+
+.regions input {
+    transform: scale(2);
+}
