@@ -11,14 +11,27 @@
 <body>
     <div class="todolist">
         <h1>Todolist</h1>
-        <input class="add" placeholder="ajouter une todo" />
+        <input class="add" placeholder="Ajouter une tâche" />
         <div class="add-options">
-            <input class="category" placeholder="Catégorie" />
-            <input class="priority" placeholder="Priorité" />
+
+            <select name="category" id="category-select">
+                <option value="">--Catégorie--</option>
+                <option value="Dev">Dev</option>
+                <option value="Design">Design</option>
+                <option value="Administratif">Administratif</option>
+                <option value="Commercial">Commercial</option>
+            </select>
+            <select name="priority" id="priority-select">
+                <option value="">--Pioritié--</option>
+                <option value="À planifier">À planifier</option>
+                <option value="Normal">Normal</option>
+                <option value="Urgent">Urgent</option>
+            </select>
             <Button>Ajouter</Button>
         </div>
         <div class="list">
             <div class="filter">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
 
             </div>
             <div class="task">

@@ -3,6 +3,10 @@ body{
     height: 100vh;
     display: flex;
     background-image: url('../images/backgroundimage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .todolist{
@@ -21,6 +25,17 @@ body{
     padding: 20px;
     box-sizing: border-box;
     border-radius: 10px;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding-right: 10px;
+}
+
+select {
+    font-size: 0.9rem;
+    padding: 2px 15px;
 }
 
 .add-options{
