@@ -13,6 +13,13 @@ body {
     }
 }
 
+.image {
+    background-image: url("../images/backgroundimage.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .sign-up-form {
     width: 100%;
     display: flex;

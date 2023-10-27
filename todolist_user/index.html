@@ -7,39 +7,49 @@
     <link rel="stylesheet" href="/todolist_user/style.css">
 </head>
 <body>
-    <h1>
-        Todolist
-    </h1>
-    <input type="text">
-    <div class="block-boutton">
-        <Button>Catégorie</Button>
-        <Button>Priorité</Button>
-        <Button>Ajouter</Button>
-    </div>
+    <div class="todolist">
+        <h1>Todolist</h1>
+        <input class="add" placeholder="Ajouter une tâche" />
+        <div class="add-options">
 
-    <div class="list">
-        <div class="filter">
-            <select name="status" id="status-select" class="select_status">
-                <option value="">Status</option>
+            <select name="category" id="category-select" class="select">
+                <option value="">Catégorie</option>
+                <option value="Dev">Dev</option>
+                <option value="Design">Design</option>
+                <option value="Administratif">Administratif</option>
+                <option value="Commercial">Commercial</option>
+            </select>
+            <select name="priority" id="priority-select" class="select">
+                <option value="">Priorité</option>
                 <option value="À planifier">À planifier</option>
                 <option value="Normal">Normal</option>
                 <option value="Urgent">Urgent</option>
             </select>
+            <Button>Ajouter</Button>
+        </div>
+        <div class="list">
+            <div class="filter">
+                <select name="status" id="status-select" class="select_status">
+                    <option value="">Status</option>
+                    <option value="À planifier">À planifier</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
             <i class="fa-solid fa-arrow-down-wide-short"></i>
+            </div>
+            <div class="task">
+                <p>Design : Lorem Ipsum</p>
+            </div>
+            <div class="task">
+                <p>Administratif : Lorem Ipsum</p>
+            </div>
+            <div class="task">
+                <p>Dev : Lorem Ipsum</p>
+            </div>
+            <div class="task">
+                <p>Commercial : Lorem Ipsum</p> 
+            </div>
         </div>
-        <div class="task">
-            <p>Design : Lorem Ipsum</p>
-        </div>
-        <div class="task">
-            <p>Administratif : Lorem Ipsum</p>
-        </div>
-        <div class="task">
-            <p>Dev : Lorem Ipsum</p>
-        </div>
-        <div class="task">
-            <p>Commercial : Lorem Ipsum</p>
-        </div>
-    </div>
     </div>
     
 </body>

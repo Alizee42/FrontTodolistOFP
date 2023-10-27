@@ -2,7 +2,7 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-image: url('../images/backgroundimage.png');
+    background-image: url('../images/backgroundimage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     overflow-y: hidden;
