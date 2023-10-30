@@ -8,6 +8,7 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
     font-family: Inter;
+    margin: 0;
 }
 
 input:focus, select:focus {
@@ -23,6 +24,7 @@ input:focus, select:focus {
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .list{
@@ -30,7 +32,7 @@ input:focus, select:focus {
     height: 80%;
     width: 100%;
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -44,12 +46,14 @@ label {
 .select {
     border-radius: 10px;
     font-size: 1.3rem;
-    padding: 12px 3rem;
+    padding: 0.8rem 1.5rem;
     box-shadow: 5px 5px 5px black;
+    margin-right: 5%;
+    cursor: pointer;
 }
 
 .select_status {
-    width: 25%;
+    width: 20%;
     height: 70%;
     border-radius: 10px;
     font-size: 1.3rem;
@@ -64,7 +68,7 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1.5%;
 }
 
 h1{
