@@ -86,7 +86,7 @@ input:focus {
     width: 30%;
 }
 
-.inscription .btn {
+button {
     width: 25rem;
     height: 5rem;
     border-radius: 10px;
