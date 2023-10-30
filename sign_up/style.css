@@ -98,7 +98,7 @@ button {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.781);
 }
 
-.inscription .btn:hover {
+.inscription button:hover {
     background-color: #550600;
 }
 
