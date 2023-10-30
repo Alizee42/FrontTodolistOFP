@@ -6,11 +6,7 @@ body {
     margin: 0;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-
-    @media screen and (max-width: 1200px) {
-        flex-direction: column;
-        overflow-y: scroll;
-    }
+    box-sizing: border-box;
 }
 
 .image {
@@ -24,10 +20,9 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 100px;
+    padding: 5%;
     height: 100%;
     box-sizing: border-box;
-    margin: auto;
 }
 
 .sign-up {
@@ -42,59 +37,89 @@ body {
 .email-wrap {
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 95%;
+    margin: 0 16%;
 }
 
 .password-wrap {
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 100%;
+    margin: 0 16%;
 }
 
 .connect-wrap {
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 100%;
     text-align: center;
+    align-items: center;
 }
 
 .connect-wrap>button {
-    height: 66px;
+    height: 55%;
     border-radius: 10px;
     outline: none;
     border: none;
     color: #FFF;
     background-color: #427A82;
     font-size: 20px;
+    width: 68%;
+    margin-bottom: 1%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.781);
 }
+
 .connect-wrap>button:hover {
     background-color: #550600;
     cursor: pointer;
 }
 
 input {
-    height: 50px;
+    height: 33%;
     border-radius: 10px;
     outline: none;
     border: 1px solid black;
-    padding: 10px;
+    padding: 1%;
+    width: auto;
+}
+
+input:focus {
+    border: 3px solid #427A82;
+    /* Changer la couleur de la bordure lorsque l'input est en focus */
+    outline: none;
+    /* Supprimer l'outline (lueur) par défaut sur le focus */
 }
 
 label {
     font-size: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 4%;
 }
 
 .switch:hover {
     text-decoration: underline;
 }
+
 /*     H2    */
 
 h2 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h2 a:hover {
     color: #550600;
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        flex-direction: column;
+        overflow-y: scroll;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .sign-up-form {
+        width: 100%;
+    }
 }

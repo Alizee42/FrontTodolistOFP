@@ -1,1 +1,1 @@
-const list= document.getElementsByClassName("list");
+const list = document.getElementsByClassName("list");

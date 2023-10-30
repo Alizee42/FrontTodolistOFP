@@ -4,15 +4,7 @@ body {
     height: 100vh;
     display: flex;
     overflow-y: hidden;
-    font-family: Arial, Helvetica, sans-serif;  
-}
-
-@media screen and (max-width: 749px) {
-    body {
-        flex-direction: column;
-        overflow-y: scroll;
-        margin: auto;
-    }
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .image {
@@ -31,19 +23,14 @@ body {
     flex-direction: column;
 }
 
-@media screen and (max-width: 1200px) {
-    .container {
-        margin: auto;
-        width: 100%;
-    }
-}
-
 /*     IDENTIFIANTS    */
 
 .identifiants {
     font-size: 1.4rem;
     display: flex;
     flex-direction: column;
+    width: 50%;
+    height: 45%;
 }
 
 .identifiants label {
@@ -51,12 +38,14 @@ body {
 }
 
 .identifiants input {
-    height: 3rem;
-    width: 30rem;
+    height: 100%;
+    width: 95%;
     border-radius: 10px;
     margin-bottom: 5%;
     font-size: 20px;
     padding: 10px;
+    border: 1px solid black;
+
 }
 
 input:focus {
@@ -78,33 +67,29 @@ input:focus {
     align-items: center;
 }
 
-@media screen and (max-width: 1200px) {
-    .regions {
-        width: 50%;
-    }
-}
-
 .regions p {
     margin-right: 10%;
 }
 
-.annecy, .lyon {
+.annecy,
+.lyon {
     display: flex;
 }
 
 /*     INSCRIPTION   */
 
-.inscription {
+.container .inscription {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 50%;
+    height: 18%;
 }
 
 button {
-    width: 25rem;
-    height: 5rem;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     background-color: #427A82;
     color: #FFF;
@@ -126,17 +111,42 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 1200px) {
-    h2 {
-        width: 240px;
-        font-size: 1rem;
-    }
-}
-
 h2 a:hover {
     color: #550600;
 }
 
 .regions input {
     transform: scale(2);
+}
+
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
+
+    .regions {
+        width: 50%;
+    }
+
+    .image {
+        display: none;
+    }
+
+    button {
+        height: 4.5rem;
+    }
+
+    h2 {
+        width: 240px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .annecy,
+    .lyon a {
+        margin-right: 10%;
+    }
 }
