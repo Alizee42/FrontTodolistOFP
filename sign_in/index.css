@@ -15,13 +15,13 @@ body {
 
 .image {
     background-image: url("../images/backgroundimage.jpg");
-    width: 100%;
+    width: 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .sign-up-form {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     padding: 100px;
