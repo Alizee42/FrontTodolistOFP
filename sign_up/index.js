@@ -21,17 +21,26 @@ submitButton.addEventListener("click", async ()=>{
         }
     }
 
-    const rawResponse = await fetch('http://localhost:3000/users/signup', {
-        method: 'POST',
-        body: JSON.stringify({
-            username:username.value, 
-            email: email.value,
-            password: password.value,
-            region: region
-        })
-    })
+    const data = {
+        username: username.value,
+        email: email.value,
+        password: password.value,
+        region: region,
+    }
 
-    const response = await rawResponse.json()
+    try {
+        const rawResponse =  await fetch('http://localhost:3000/users/signup', {
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: new URLSearchParams(data)
+        })
+
+        const response = await rawResponse.json();
+    } catch (error) {
+        console.log(error)
+    }
     
 })
 
