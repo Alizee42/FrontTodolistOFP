@@ -1,15 +1,16 @@
-
 // Get the list element where tasks will be displayed
 const list = document.getElementById("tasksList"); // Assuming there's an element with id 'tasksList'
 
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
-    const taskItem = document.createElement('li');
-    taskItem.textContent = task.description; // Utilisez les propriétés de votre objet de tâche ici
+    const taskWrap = document.createElement('div');
+    taskWrap.className = `task ${task.priority}`
+    const taskItem = document.createElement('p');
+    taskItem.textContent = `${task.category} : ${task.description}`; // Utilisez les propriétés de votre objet de tâche ici
     // Ajouter d'autres détails de la tâche ici si nécessaire
     
-    const list = document.getElementById('tasksList');
-    list.appendChild(taskItem); // Ajoutez l'élément de tâche à la liste
+    taskWrap.appendChild(taskItem);
+    list.appendChild(taskWrap); // Ajoutez l'élément de tâche à la liste
 }
 
 // Fonction pour obtenir et afficher les tâches existantes
