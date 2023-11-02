@@ -3,11 +3,16 @@ const list = document.getElementById("tasksList"); // Assuming there's an elemen
 
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
+    // Vérification des propriétés de l'objet task
+    if (!task || !task.priority || !task.category || !task.description) {
+        console.error('Invalid task object:', task);
+        return; // Sortie de la fonction si l'objet task est invalide
+    }
+
     const taskWrap = document.createElement('div');
-    taskWrap.className = `task ${task.priority}`
+    taskWrap.className = `task ${task.priority}`;
     const taskItem = document.createElement('p');
-    taskItem.textContent = `${task.category} : ${task.description}`; // Utilisez les propriétés de votre objet de tâche ici
-    // Ajouter d'autres détails de la tâche ici si nécessaire
+    taskItem.textContent = `${task.category} : ${task.description}`;
     
     taskWrap.appendChild(taskItem);
     list.appendChild(taskWrap); // Ajoutez l'élément de tâche à la liste
@@ -36,7 +41,12 @@ async function addTask(task) {
         });
         if (response.ok) {
             const addedTask = await response.json();
-            addTaskToDOM(addedTask); // Mettez à jour l'interface utilisateur avec la nouvelle tâche
+            // Assurez-vous que la réponse de l'API contient la tâche ajoutée avant de l'ajouter au DOM
+            if (addedTask && addedTask.description && addedTask.category && addedTask.priority) {
+                addTaskToDOM(addedTask); // Mettre à jour l'interface utilisateur avec la nouvelle tâche
+            } else {
+                console.error('Invalid task returned from API:', addedTask);
+            }
         } else {
             console.error('Failed to add task', response.status);
         }
@@ -51,15 +61,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addButton) {
         addButton.addEventListener('click', () => {
             const taskInput = document.querySelector('.add');
+            const categorySelect = document.getElementById('category-select');
+            const prioritySelect = document.getElementById('priority-select');
+
             const taskDescription = taskInput.value.trim();
-            if (taskDescription) {
-                addTask({ description: taskDescription });
-                taskInput.value = ''; // Effacer le champ de saisie après l'ajout de la tâche
+            const taskCategory = categorySelect.value;
+            const taskPriority = prioritySelect.value;
+
+            // Validation des entrées
+            if (!taskDescription || !taskCategory || !taskPriority) {
+                console.error('Please fill in all fields.');
+                return; // Sortie de la fonction si les champs ne sont pas valides
             }
+
+            const task = {
+                description: taskDescription,
+                category: taskCategory,
+                priority: taskPriority
+            };
+            addTask(task);
+            taskInput.value = '';
+            categorySelect.value = '';
+            prioritySelect.value = '';
         });
     }
 });
 
 // Appel initial pour obtenir et afficher les tâches au chargement de la page
 getTasks();
-
