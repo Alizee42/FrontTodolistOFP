@@ -90,5 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Appel initial pour obtenir et afficher les tâches au chargement de la page
+// Appel initial pour obtenir et afficher les tâches au chargement de la pages
 getTasks();
