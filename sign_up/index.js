@@ -4,6 +4,8 @@ const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const ville = document.getElementsByName("ville");
+const message_error = document.getElementById("message-error");
+message_error.style.color = "red";
 
 
 submitButton.addEventListener("click", async ()=>{
@@ -38,6 +40,8 @@ submitButton.addEventListener("click", async ()=>{
         })
 
         const response = await rawResponse.json();
+        console.log(response)
+        message_error.textContent = response.message;
     } catch (error) {
         console.log(error)
     }
