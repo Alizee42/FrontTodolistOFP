@@ -142,10 +142,14 @@ i {
 }
 
 .urgent{
-    background-color: "red";
+    background-color: #FFADAD;
 }
 
 .normal{
     background-color: yellow;
+}
+
+.planifier{
+    background-color: #BCE3FF;
 }
 
