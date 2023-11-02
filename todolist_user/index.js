@@ -45,7 +45,6 @@ async function addTask(task) {
             // Assurez-vous que la réponse de l'API contient la tâche ajoutée avant de l'ajouter au DOM
             if (addedTask && addedTask.description && addedTask.category && addedTask.priority) {
                 addTaskToDOM(addedTask); // Mettre à jour l'interface utilisateur avec la nouvelle tâche
-                location.reload();
             } else {
                 console.error('Invalid task returned from API:', addedTask);
             }
@@ -83,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             addTask(task);
+            location.reload()
             taskInput.value = '';
             categorySelect.value = '';
             prioritySelect.value = '';
