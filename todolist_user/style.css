@@ -32,10 +32,11 @@ select:focus {
     background-color: #FFF;
     height: 80%;
     width: 100%;
-    margin-top: 10px;
+    margin: 10px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
+    position: relative;
 }
 
 label {
@@ -61,6 +62,28 @@ label {
     font-size: 1.3rem;
     box-shadow: 1.5px 1.5px 1.5px black;
     cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+}
+
+.category_select {
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 25%;
+    height: 8%;
+}
+
+.category_select_trigger {
+    height: 65%;
 }
 
 .add-options {
@@ -128,13 +151,19 @@ button:hover {
     padding: 10px;
     margin: 0 10px 10px;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
 }
 
-.filter {
+.task_desc {
+    width: 88%;
+}
+
+.edit {
+    width: 12%;
     display: flex;
+    justify-content: flex-end;
     justify-content: space-between;
-    height: 10%;
-    width: 100%;
 }
 
 i {

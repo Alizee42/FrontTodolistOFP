@@ -45,7 +45,13 @@
                     <option value="normal">Normal</option>
                     <option value="urgent">Urgent</option>
                 </select>
-                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                <select name="filter_category" id="category_select" class="category_select" aria-hidden="true">
+                    <option value="Dev">Dev</option>
+                    <option value="Design">Design</option>
+                    <option value="Administratif">Administratif</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+                <img src="../images/filtre.svg" alt="Veuillez sélectionner une option" class="category_select_trigger">
             </div>
             <div id="tasksList" class="tasksList">
             </div>
