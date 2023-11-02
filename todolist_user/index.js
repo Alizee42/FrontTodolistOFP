@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById('addTaskButton');
     if (addButton) {
         addButton.addEventListener('click', () => {
-            const taskInput = document.querySelector('.add');
+            const taskInput = document.getElementsByClassName('add');
             const categorySelect = document.getElementById('category-select');
             const prioritySelect = document.getElementById('priority-select');
 
-            const taskDescription = taskInput.value.trim();
+            const taskDescription = taskInput.value;
             const taskCategory = categorySelect.value;
             const taskPriority = prioritySelect.value;
 
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: taskCategory,
                 priority: taskPriority
             };
+
             addTask(task);
             taskInput.value = '';
             categorySelect.value = '';
