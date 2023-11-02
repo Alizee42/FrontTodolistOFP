@@ -11,7 +11,7 @@ loginButton.addEventListener('click', async () => {
 
         if (response.ok) {
             // Authentification réussie, redirigez l'utilisateur vers la page appropriée
-            window.location.href = '/dashboard';
+            window.location.href = '../todolist_user/index.html';
         } else {
             // Affichez un message d'erreur à l'utilisateur
             console.error(data.message);
