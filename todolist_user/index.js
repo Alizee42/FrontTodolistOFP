@@ -15,6 +15,8 @@ function addTaskToDOM(task) {
     const taskItem = document.createElement('p');
     taskItem.textContent = `${task.category} : ${task.description}`;
     
+    taskWrap.setAttribute('data-category', task.category);
+    taskWrap.setAttribute('data-status', task.priority); // Assuming priority is used as status
     taskWrap.appendChild(taskItem);
     list.appendChild(taskWrap); // Ajoutez l'élément de tâche à la liste
 }
@@ -92,3 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Appel initial pour obtenir et afficher les tâches au chargement de la pages
 getTasks();
+
+
+// Function to filter tasks
+function filterTasks() {
+    const statusFilter = document.getElementById('status-select').value;
+    const categoryFilter = document.getElementById('category_select').value;
+    const tasks = document.getElementsByClassName('task');
+
+    // Loop over the tasks and hide those that do not match the filter criteria
+    for (let task of tasks) {
+        // Assume the task element has data attributes for status and category
+        const taskStatus = task.getAttribute('data-status');
+        const taskCategory = task.getAttribute('data-category');
+
+        // Check if the task matches the filter criteria
+        const statusMatch = !statusFilter || taskStatus.includes(statusFilter);
+        const categoryMatch = !categoryFilter || taskCategory.includes(categoryFilter);
+
+        // If the task matches, display it; otherwise, hide it
+        if (statusMatch && categoryMatch) {
+            task.style.display = '';
+        } else {
+            task.style.display = 'none';
+        }
+    }
+}
+
+// Add event listeners to the filter dropdowns
+document.getElementById('status-select').addEventListener('change', filterTasks);
+document.getElementById('category_select').addEventListener('change', filterTasks);
+
+// Call filterTasks on page load to apply any default filters
+document.addEventListener('DOMContentLoaded', filterTasks);
