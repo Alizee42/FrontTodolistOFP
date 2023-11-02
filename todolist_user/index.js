@@ -4,6 +4,7 @@ const list = document.getElementById("tasksList"); // Assuming there's an elemen
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
     // Vérification des propriétés de l'objet task
+    console.log(task)
     if (!task || !task.priority || !task.category || !task.description) {
         console.error('Invalid task object:', task);
         return; // Sortie de la fonction si l'objet task est invalide
@@ -44,6 +45,7 @@ async function addTask(task) {
             // Assurez-vous que la réponse de l'API contient la tâche ajoutée avant de l'ajouter au DOM
             if (addedTask && addedTask.description && addedTask.category && addedTask.priority) {
                 addTaskToDOM(addedTask); // Mettre à jour l'interface utilisateur avec la nouvelle tâche
+                location.reload();
             } else {
                 console.error('Invalid task returned from API:', addedTask);
             }
@@ -60,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById('addTaskButton');
     if (addButton) {
         addButton.addEventListener('click', () => {
-            const taskInput = document.getElementsByClassName('add');
+            const taskInput = document.querySelector('.add');
             const categorySelect = document.getElementById('category-select');
             const prioritySelect = document.getElementById('priority-select');
 
-            const taskDescription = taskInput.value;
+            const taskDescription = taskInput.value.trim();
             const taskCategory = categorySelect.value;
             const taskPriority = prioritySelect.value;
 
@@ -84,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             taskInput.value = '';
             categorySelect.value = '';
             prioritySelect.value = '';
-            location.reload();
         });
     }
 });
