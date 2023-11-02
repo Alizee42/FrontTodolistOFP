@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             taskInput.value = '';
             categorySelect.value = '';
             prioritySelect.value = '';
+            location.reload();
         });
     }
 });
