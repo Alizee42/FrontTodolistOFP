@@ -29,7 +29,7 @@ input:focus, select:focus {
 
 .list{
     background-color: #FFF;
-    height: 80%;
+    height: 100%;
     width: 100%;
     margin-top: 10px;
     padding: 10px;
@@ -127,6 +127,7 @@ button:hover {
     margin: 0 10px 10px;
     display: flex;
     align-items: center;
+    border-radius: 15px;
 }
 
 .task_desc {
@@ -144,8 +145,20 @@ button:hover {
     display: flex;
     justify-content: space-between;
     height: 10%;
-    margin-bottom: 60px;
+    margin-bottom: 10%;
 }
+
+.category_select {
+    background-image: url(../images/filtre.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: white;
+    width: 8%;
+    appearance: none;
+}
+
+
 
 i {
     font-size: 30px;
