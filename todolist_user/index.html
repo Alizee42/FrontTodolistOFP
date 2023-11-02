@@ -35,10 +35,11 @@
                 <option value="Normal">Normal</option>
                 <option value="Urgent">Urgent</option>
             </select>
-            <Button>Ajouter</Button>
+            <button id="addTaskButton">Ajouter</button>
         </div>
         <div class="list">
             <div class="filter">
+                
                 <select name="status" id="status-select" class="select_status">
                     <option value="">Status</option>
                     <option value="À planifier">À planifier</option>
@@ -47,6 +48,9 @@
                 </select>
                 <i class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
+            <ul id="tasksList">
+               
+            </ul>
             <div class='task urgent' id="Urgent">
                 <p>Design : Lorem Ipsum</p>
             </div>
