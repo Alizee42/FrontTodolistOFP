@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/todolist_user/style.css">
+    <title>todolist-ofp</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="./style.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="todolist">
         <h1>Todolist</h1>
@@ -35,22 +45,23 @@
                     <option value="Normal">Normal</option>
                     <option value="Urgent">Urgent</option>
                 </select>
-            <i class="fa-solid fa-arrow-down-wide-short"></i>
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
-            <div class="task">
+            <div class='task urgent' id="Urgent">
                 <p>Design : Lorem Ipsum</p>
             </div>
-            <div class="task">
+            <div class="task inprogress">
                 <p>Administratif : Lorem Ipsum</p>
             </div>
             <div class="task">
                 <p>Dev : Lorem Ipsum</p>
             </div>
             <div class="task">
-                <p>Commercial : Lorem Ipsum</p> 
+                <p>Commercial : Lorem Ipsum</p>
             </div>
         </div>
     </div>
-    
+    <script src="index.js"></script>
 </body>
+
 </html>

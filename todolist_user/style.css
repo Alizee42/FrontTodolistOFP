@@ -1,4 +1,4 @@
-body{
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -8,29 +8,32 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
     font-family: Inter;
+    margin: 0;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border: 2px solid #427A82;
     /* Changer la couleur de la bordure lorsque l'input est en focus */
     outline: none;
     /* Supprimer l'outline (lueur) par défaut sur le focus */
 }
 
-.todolist{
+.todolist {
     width: 40%;
     height: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.list{
+.list {
     background-color: #FFF;
     height: 80%;
     width: 100%;
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -44,12 +47,14 @@ label {
 .select {
     border-radius: 10px;
     font-size: 1.3rem;
-    padding: 12px 3rem;
+    padding: 0.8rem 1.5rem;
     box-shadow: 5px 5px 5px black;
+    margin-right: 5%;
+    cursor: pointer;
 }
 
 .select_status {
-    width: 25%;
+    width: 20%;
     height: 70%;
     border-radius: 10px;
     font-size: 1.3rem;
@@ -57,22 +62,22 @@ label {
     cursor: pointer;
 }
 
-.add-options{
+.add-options {
     box-sizing: border-box;
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1.5%;
 }
 
-h1{
+h1 {
     color: #FFF;
     font-style: italic;
 }
 
-.add{
+.add {
     height: 60px;
     width: 100%;
     padding: 0;
@@ -86,7 +91,7 @@ h1{
     font-size: 1.2rem;
 }
 
-button{
+button {
     height: 55px;
     width: 30%;
     border-radius: 10px;
@@ -103,27 +108,27 @@ button:hover {
     background-color: #550600;
 }
 
-.priority{
+.priority {
     height: 50px;
     width: 30%;
     border: none;
     border-radius: 10px;
 }
 
-.category{
+.category {
     height: 50px;
     width: 30%;
     border: none;
     border-radius: 10px;
 }
 
-.task{
+.task {
     background-color: red;
     padding: 10px;
     margin: 0 10px 10px;
 }
 
-.filter{
+.filter {
     display: flex;
     justify-content: space-between;
     height: 10%;
