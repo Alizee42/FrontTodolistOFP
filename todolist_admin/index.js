@@ -47,10 +47,11 @@ function addTaskToDOM(task) {
 
     penIcon.onclick = function () {
         modal.style.display = "block";
-        descriptionInput.value = `${task.description}`;
-        categorySelect.value = `${task.category}`;
-        prioritySelect.value = `${task.priority}`;
-        statusSelect.value = `${task.status}`;
+        descriptionInput.value = task.description;
+        categorySelect.value = task.category;
+        prioritySelect.value = task.priority;
+        statusSelect.value = "task.status";
+        deleteTask(task)
     }
 
     span.addEventListener('click', function () {
@@ -175,15 +176,22 @@ async function deleteTask(id) {
     }
 }
 
-async function updateTask(id) {
-    console.log(id)
+async function updateTask(task) {
     try {
         const rawResponse = await fetch(`http://localhost:3000/update?id=${id}`, {
-            method: 'DELETE',
+            method: 'PUT',
+            headers : {
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+                description: task.description,
+                category: task.category,
+                priority: task.priority,
+            }),
         });
         const response = await rawResponse.json()
         if (response) {
-            location.reload()
+            location.reload();
         }
     } catch (error) {
         console.log(error)
