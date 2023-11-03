@@ -23,75 +23,39 @@
         <div class="add-options">
 
             <select name="category" id="category-select" class="select">
-                <option value="">Catégorie</option>
-                <option value="Développement">Développement</option>
+                <option>Catégorie</option>
+                <option value="Developpement">Développement</option>
                 <option value="Design">Design</option>
                 <option value="Administratif">Administratif</option>
                 <option value="Commercial">Commercial</option>
             </select>
             <select name="priority" id="priority-select" class="select">
                 <option value="">Priorité</option>
-                <option value="À planifier">À planifier</option>
-                <option value="Normal">Normal</option>
-                <option value="Urgent">Urgent</option>
+                <option value="planifier">À planifier</option>
+                <option value="normal">Normal</option>
+                <option value="urgent">Urgent</option>
             </select>
-            <Button>Ajouter</Button>
+            <button id="addTaskButton">Ajouter</button>
         </div>
         <div class="list">
             <div class="filter">
                 <select name="status" id="status-select" class="select_status">
                     <option value="">Status</option>
-                    <option value="À planifier">À planifier</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Urgent">Urgent</option>
+                    <option value="">Tous</option>
+                    <option value="planifier">À planifier</option>
+                    <option value="normal">Normal</option>
+                    <option value="urgent">Urgent</option>
                 </select>
                 <select name="filter_category" id="category_select" class="category_select" aria-hidden="true">
-                    <option value="Dev">Dev</option>
+                    <option value="">Tous</option>
+                    <option value="Developpement">Développement</option>
                     <option value="Design">Design</option>
                     <option value="Administratif">Administratif</option>
                     <option value="Commercial">Commercial</option>
                 </select>
                 <img src="../images/filtre.svg" alt="Veuillez sélectionner une option" class="category_select_trigger">
-
             </div>
-
-            <!--   TASKS    -->
-
-            <div class='task urgent' id="Urgent">
-                <div class="task_desc">
-                    <p>Design: Lorem Ipsum</p>
-                </div>
-                <div class="edit">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-            <div class="task inprogress">
-                <div class="task_desc">
-                    <p>Administratif: Lorem Ipsum</p>
-                </div>
-                <div class="edit">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-            <div class="task">
-                <div class="task_desc">
-                    <p>Dev: Lorem Ipsum</p>
-                </div>
-                <div class="edit">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-            <div class="task">
-                <div class="task_desc">
-                    <p>Commercial: Lorem Ipsum</p>
-                </div>
-                <div class="edit">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
+            <div id="tasksList" class="tasksList">
             </div>
         </div>
     </div>
@@ -99,3 +63,40 @@
 </body>
 
 </html>
+
+                <!-- <div class='task urgent' id="Urgent">
+                    <div class="task_desc">
+                        <p>Design: Lorem Ipsum</p>
+                    </div>
+                    <div class="edit">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+                <div class="task inprogress">
+                    <div class="task_desc">
+                        <p>Administratif: Lorem Ipsum</p>
+                    </div>
+                    <div class="edit">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="task_desc">
+                        <p>Dev: Lorem Ipsum</p>
+                    </div>
+                    <div class="edit">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="task_desc">
+                        <p>Commercial: Lorem Ipsum</p>
+                    </div>
+                    <div class="edit">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>-->
