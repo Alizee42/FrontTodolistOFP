@@ -1,14 +1,14 @@
 // Get the list element where tasks will be displayed
 const list = document.getElementById("tasksList"); // Assuming there's an element with id 'tasksList'
-const bin = document.getElementsByClassName('fa-solid fa-trash');
+
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
     // Vérification des propriétés de l'objet task
-    console.log(task)
     if (!task || !task.priority || !task.category || !task.description) {
         console.error('Invalid task object:', task);
         return; // Sortie de la fonction si l'objet task est invalide
     }
+
 
     const taskWrap = document.createElement('div');
     taskWrap.className = `task ${task.priority}`;
@@ -17,17 +17,24 @@ function addTaskToDOM(task) {
     const editWrap = document.createElement('div');
     const penIcon = document.createElement('i');
     const binIcon = document.createElement('i');
-    penIcon.className = "fa-regular fa-pen-to-square";
-    binIcon.className = "fa-solid fa-trash";
+    penIcon.classList.add("fa-regular", "fa-pen-to-square", "pen-icon");
+    binIcon.classList.add("fa-solid", "fa-trash", "bin-icon");
 
-    
     taskWrap.setAttribute('data-category', task.category);
     taskWrap.setAttribute('data-status', task.priority); // Assuming priority is used as status
     taskWrap.appendChild(taskItem);
     list.appendChild(taskWrap); // Ajoutez l'élément de tâche à la liste
-    editWrap.appendChild(penIcon)
-    editWrap.appendChild(binIcon)
-    taskWrap.appendChild(editWrap)
+    editWrap.appendChild(penIcon);
+    editWrap.appendChild(binIcon);
+    taskWrap.appendChild(editWrap);
+
+    binIcon.addEventListener('click', () => {
+        deleteTask(task._id);
+    });
+
+    penIcon.addEventListener('click', () => {
+        updateTask(task._id);
+    });
 }
 
 // Fonction pour obtenir et afficher les tâches existantes
@@ -99,7 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
             prioritySelect.value = '';
         });
     }
+
 });
+
 
 // Appel initial pour obtenir et afficher les tâches au chargement de la pages
 getTasks();
@@ -130,21 +139,22 @@ function filterTasks() {
     }
 }
 
-bin.addEventListener( async () => {
+async function deleteTask(id){
+    console.log(id)
     try {
-        const response = await fetch(`http://localhost:3000/addTask?id=${id}`, {
+        const rawResponse = await fetch(`http://localhost:3000/deleteTask?id=${id}`, {
             method: 'DELETE',
-        })
+        });
+        const response = await rawResponse.json()
+        if(response){
+            location.reload()
+        }
     } catch (error) {
-        
+        console.log(error)
     }
-})
-
-
-
+}
 
 document.getElementById('status-select').addEventListener('change', filterTasks);
 document.getElementById('category_select').addEventListener('change', filterTasks);
-
-
 document.addEventListener('DOMContentLoaded', filterTasks);
+
