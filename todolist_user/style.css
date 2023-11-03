@@ -37,6 +37,7 @@ select:focus {
     box-sizing: border-box;
     border-radius: 10px;
     position: relative;
+    padding: 15px;
 }
 
 label {
@@ -60,7 +61,6 @@ label {
     height: 70%;
     border-radius: 10px;
     font-size: 1.3rem;
-    box-shadow: 1.5px 1.5px 1.5px black;
     cursor: pointer;
 }
 
@@ -149,7 +149,7 @@ button:hover {
 .task {
     background-color: red;
     padding: 10px;
-    margin: 0 10px 10px;
+    margin-bottom: 10px;
     border-radius: 15px;
     display: flex;
     align-items: center;

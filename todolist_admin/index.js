@@ -6,6 +6,14 @@ const modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
 const span = document.getElementById("close");
 
+const descriptionInput = document.getElementById('description-modal');
+
+const categoryInputModal = document.getElementById('category-select-modal');
+
+const priorityInputModal = document.getElementById('priority-select-modal');
+
+const statusInputModal = document.getElementById('status-select-modal');
+
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
     // Vérification des propriétés de l'objet task
@@ -14,47 +22,68 @@ function addTaskToDOM(task) {
         return; // Sortie de la fonction si l'objet task est invalide
     }
 
-    const descriptionInput = document.getElementById('modal-update-description');
-    const categorySelect = document.getElementById('category-select');
-    const prioritySelect = document.getElementById('priority-select');
-    const statusSelect = document.getElementById('status-select');
 
+    // CREATION DU WRAP POUR UNE TACHE
     const taskWrap = document.createElement('div');
     taskWrap.className = `task ${task.priority}`;
+    // CREATION DU TEXT POUR UNE TACHE
     const taskItem = document.createElement('p');
     taskItem.textContent = `${task.category} : ${task.description}`;
+    // CREATION DES ICONES UPDATE ET DELETE POUR UNE TACHE
     const editWrap = document.createElement('div');
     const penIcon = document.createElement('i');
     const binIcon = document.createElement('i');
+
+    // AJOUT DES CLASSES POUR IMPORTER LES ICONES
     penIcon.classList.add("fa-regular", "fa-pen-to-square", "pen-icon");
     binIcon.classList.add("fa-solid", "fa-trash", "bin-icon");
 
     taskWrap.setAttribute('data-category', task.category);
     taskWrap.setAttribute('data-status', task.priority); // Assuming priority is used as status
+
+    // EMBRICAGE ET AJOUT DE CES ÉLEMENTS DANS LA LISTE
     taskWrap.appendChild(taskItem);
     list.appendChild(taskWrap); // Ajoutez l'élément de tâche à la liste
     editWrap.appendChild(penIcon);
     editWrap.appendChild(binIcon);
     taskWrap.appendChild(editWrap);
 
+
+    // DELETE 
     binIcon.addEventListener('click', () => {
         deleteTask(task._id);
     });
 
-    // penIcon.addEventListener('click', () => {
-    //     updateTask(task._id);
-    // });
 
+    // UPDATE 
     penIcon.onclick = function () {
         modal.style.display = "block";
         descriptionInput.value = task.description;
-        categorySelect.value = task.category;
-        prioritySelect.value = task.priority;
-        statusSelect.value = "task.status";
-        deleteTask(task)
+        setSelectValue('#category-select-modal', task.category);
+        setSelectValue('#priority-select-modal', task.priority);
     }
 
+    // OUVERTURE MODAL LORS DU CLIC SUR LE CRAYON
     span.addEventListener('click', function () {
+        modal.style.display = "none";
+    })
+
+    function setSelectValue(selectId, valueToSet) {
+        const selectElement = document.querySelector(selectId);
+        
+        // Ensure the select element exists
+        if (selectElement) {
+            const option = selectElement.querySelector(`option[value="${valueToSet}"]`);
+            
+            // Set the value if the option is found
+            if (option) {
+                selectElement.value = valueToSet;
+            }
+        }
+    }
+
+    document.getElementById("button-modal").addEventListener('click', function(){
+        updateTask(task); 
         modal.style.display = "none";
     })
 }
@@ -77,6 +106,7 @@ async function addTask(task) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(task),
         });
@@ -102,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addButton) {
         addButton.addEventListener('click', () => {
             const taskInput = document.querySelector('.add');
-            const categorySelect = document.getElementById('category-select');
-            const prioritySelect = document.getElementById('priority-select');
+            const categorySelect = document.getElementById('category-select-add');
+            const prioritySelect = document.getElementById('priority-select-add');
 
             const taskDescription = taskInput.value.trim();
             const taskCategory = categorySelect.value;
@@ -129,17 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
 });
 
 
 // Appel initial pour obtenir et afficher les tâches au chargement de la pages
-getTasks();
+
 
 
 
 function filterTasks() {
     const statusFilter = document.getElementById('status-select').value;
-    const categoryFilter = document.getElementById('category_select').value;
+    const categoryFilter = document.getElementById('category-select').value;
     const tasks = document.getElementsByClassName('task');
 
 
@@ -178,15 +209,16 @@ async function deleteTask(id) {
 
 async function updateTask(task) {
     try {
-        const rawResponse = await fetch(`http://localhost:3000/update?id=${id}`, {
+        const rawResponse = await fetch(`http://localhost:3000/updateTask`, {
             method: 'PUT',
             headers : {
                 'Content-Type':'application/json',
             },
             body: JSON.stringify({
-                description: task.description,
-                category: task.category,
-                priority: task.priority,
+                id: task._id,
+                description: descriptionInput.value,
+                category: categoryInputModal.value,
+                priority: priorityInputModal.value,
             }),
         });
         const response = await rawResponse.json()
@@ -198,10 +230,9 @@ async function updateTask(task) {
     }
 }
 
-
+getTasks()
 
 document.getElementById('button-modal').addEventListener('click', console.log("first"))
 document.getElementById('status-select').addEventListener('change', filterTasks);
-document.getElementById('category_select').addEventListener('change', filterTasks);
+document.getElementById('category-select').addEventListener('change', filterTasks);
 document.addEventListener('DOMContentLoaded', filterTasks);
-

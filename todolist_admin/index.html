@@ -22,14 +22,14 @@
         <input class="add" placeholder="Ajouter une tâche" />
         <div class="add-options">
 
-            <select name="category" id="category-select" class="select">
+            <select name="category" id="category-select-add" class="select">
                 <option>Catégorie</option>
                 <option value="Developpement">Développement</option>
                 <option value="Design">Design</option>
                 <option value="Administratif">Administratif</option>
                 <option value="Commercial">Commercial</option>
             </select>
-            <select name="priority" id="priority-select" class="select">
+            <select name="priority" id="priority-select-add" class="select">
                 <option value="">Priorité</option>
                 <option value="planifier">À planifier</option>
                 <option value="normal">Normal</option>
@@ -46,7 +46,7 @@
                     <option value="normal">Normal</option>
                     <option value="urgent">Urgent</option>
                 </select>
-                <select name="filter_category" id="category_select" class="category_select" aria-hidden="true">
+                <select name="filter_category" id="category-select" class="category_select" aria-hidden="true">
                     <option value="">Tous</option>
                     <option value="Developpement">Développement</option>
                     <option value="Design">Design</option>
@@ -64,22 +64,19 @@
             <div class="modal-content">
                 <span class="close" id="close">&times;</span>
                 <div class="wrap-update">
-                    <label>Description <input id="modal-update-description"/></label>
-                    <select name="category" id="category-select" class="select">
+                    <label class="label-modal">Description</label>
+                    <input id="description-modal" />
+                    <label class="label-modal">Catégorie</label>
+                    <select name="category" id="category-select-modal" class="select">
                         <option>Catégorie</option>
                         <option value="Developpement">Développement</option>
                         <option value="Design">Design</option>
                         <option value="Administratif">Administratif</option>
                         <option value="Commercial">Commercial</option>
                     </select>
-                    <select name="priority" id="priority-select" class="select">
+                    <label class="label-modal">Priorité</label>
+                    <select name="priority" id="priority-select-modal" class="select">
                         <option value="">Priorité</option>
-                        <option value="planifier">À planifier</option>
-                        <option value="normal">Normal</option>
-                        <option value="urgent">Urgent</option>
-                    </select>
-                    <select name="status" id="status-select" class="select">
-                        <option value="">Status</option>
                         <option value="planifier">À planifier</option>
                         <option value="normal">Normal</option>
                         <option value="urgent">Urgent</option>
