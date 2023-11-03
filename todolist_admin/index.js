@@ -1,5 +1,10 @@
 // Get the list element where tasks will be displayed
 const list = document.getElementById("tasksList"); // Assuming there's an element with id 'tasksList'
+// Get the modal
+const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+const span = document.getElementById("close");
 
 // Fonction pour ajouter une tâche à l'interface utilisateur
 function addTaskToDOM(task) {
@@ -9,6 +14,10 @@ function addTaskToDOM(task) {
         return; // Sortie de la fonction si l'objet task est invalide
     }
 
+    const descriptionInput = document.getElementById('modal-update-description');
+    const categorySelect = document.getElementById('category-select');
+    const prioritySelect = document.getElementById('priority-select');
+    const statusSelect = document.getElementById('status-select');
 
     const taskWrap = document.createElement('div');
     taskWrap.className = `task ${task.priority}`;
@@ -32,9 +41,21 @@ function addTaskToDOM(task) {
         deleteTask(task._id);
     });
 
-    penIcon.addEventListener('click', () => {
-        updateTask(task._id);
-    });
+    // penIcon.addEventListener('click', () => {
+    //     updateTask(task._id);
+    // });
+
+    penIcon.onclick = function () {
+        modal.style.display = "block";
+        descriptionInput.value = `${task.description}`;
+        categorySelect.value = `${task.category}`;
+        prioritySelect.value = `${task.priority}`;
+        statusSelect.value = `${task.status}`;
+    }
+
+    span.addEventListener('click', function () {
+        modal.style.display = "none";
+    })
 }
 
 // Fonction pour obtenir et afficher les tâches existantes
@@ -120,9 +141,9 @@ function filterTasks() {
     const categoryFilter = document.getElementById('category_select').value;
     const tasks = document.getElementsByClassName('task');
 
-    
+
     for (let task of tasks) {
-       
+
         const taskStatus = task.getAttribute('data-status');
         const taskCategory = task.getAttribute('data-category');
 
@@ -130,7 +151,7 @@ function filterTasks() {
         const statusMatch = !statusFilter || taskStatus.includes(statusFilter);
         const categoryMatch = !categoryFilter || taskCategory.includes(categoryFilter);
 
-        
+
         if (statusMatch && categoryMatch) {
             task.style.display = '';
         } else {
@@ -139,14 +160,14 @@ function filterTasks() {
     }
 }
 
-async function deleteTask(id){
+async function deleteTask(id) {
     console.log(id)
     try {
         const rawResponse = await fetch(`http://localhost:3000/deleteTask?id=${id}`, {
             method: 'DELETE',
         });
         const response = await rawResponse.json()
-        if(response){
+        if (response) {
             location.reload()
         }
     } catch (error) {
@@ -154,6 +175,24 @@ async function deleteTask(id){
     }
 }
 
+async function updateTask(id) {
+    console.log(id)
+    try {
+        const rawResponse = await fetch(`http://localhost:3000/update?id=${id}`, {
+            method: 'DELETE',
+        });
+        const response = await rawResponse.json()
+        if (response) {
+            location.reload()
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+document.getElementById('button-modal').addEventListener('click', console.log("first"))
 document.getElementById('status-select').addEventListener('change', filterTasks);
 document.getElementById('category_select').addEventListener('change', filterTasks);
 document.addEventListener('DOMContentLoaded', filterTasks);
