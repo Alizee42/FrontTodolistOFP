@@ -1,0 +1,280 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-image: url('../images/backgroundimage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: Inter;
+    margin: 0;
+}
+
+input:focus,
+select:focus {
+    border: 2px solid #427A82;
+    /* Changer la couleur de la bordure lorsque l'input est en focus */
+    outline: none;
+    /* Supprimer l'outline (lueur) par défaut sur le focus */
+}
+
+.todolist {
+    width: 40%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list {
+    background-color: #FFF;
+    height: 80%;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+    padding: 15px;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding-right: 10px;
+}
+
+.select {
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+    margin-right: 5%;
+    cursor: pointer;
+    width: 33%;
+}
+
+.select_status {
+    width: 30%;
+    height: 70%;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+}
+
+.category_select {
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 25%;
+    height: 8%;
+}
+
+.category_select_trigger {
+    height: 65%;
+}
+
+.add-options {
+    box-sizing: border-box;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5%;
+}
+
+h1 {
+    color: #FFF;
+    font-style: italic;
+}
+
+.add {
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    box-shadow: inset 2px 2px 5px #00000086;
+    font-size: 1.2rem;
+}
+
+button {
+    height: 55px;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #427A82;
+    font-size: 1.4rem;
+    outline: none;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #550600;
+}
+
+.priority {
+    height: 50px;
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+}
+
+.category {
+    height: 50px;
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+}
+
+.task {
+    background-color: red;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task_desc {
+    width: 88%;
+}
+
+.edit {
+    width: 12%;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.urgent {
+    background-color: #FFADAD;
+}
+
+.normal {
+    background-color: yellow;
+}
+
+.planifier {
+    background-color: #BCE3FF;
+}
+
+.list {
+    overflow-y: hidden;
+}
+
+.tasksList {
+    overflow-y: scroll;
+    height: 90%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin: auto auto auto auto;
+    height: 20%;
+}
+
+.button-modal {
+    width: 200px;
+}
+
+.wrap-update {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-between;
+}
+
+.modal-description{
+    font-size: 22px;
+}
+
+
+#description-modal{
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.label-modal{
+    font-size: 20px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+
+    <!-- //////////// FONTS \\\\\\\\\\\ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- //////////// CSS \\\\\\\\\\\ -->
+
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="image" alt="collab"></div>
+    <div class="container" method="POST" action="http://localhost:3000/signup">
+
+        <!-- //////////// IDENTIFIANTS \\\\\\\\\\\ -->
+
+        <div class="identifiants">
+            <label for="username">Utilisateur</label>
+            <input id="username"type="username">
+            <label for="email">Email</label>
+            <input id="email" class="email" type="email">
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password">
+
+        </div>
+
+        <!-- //////////// REGIONS \\\\\\\\\\\ -->
+
+        <span class="regions">
+            <div class="annecy">
+                <p>Annecy</p><input type="radio" id="annecy"  name="ville" value="Annecy">
+                <label for="annecy"></label>
+            </div>
+            <div class="lyon">
+                <p>Lyon</p><input type="radio" id="lyon" name="ville" value="Lyon">
+                <label for="lyon"></label>
+            </div>
+        </span>
+
+        <!-- //////////// INSCRIPTION \\\\\\\\\\\ -->
+
+        <div class="inscription">
+            <button  id="submit">S'inscrire</button>
+            <h2><a href="../sign_in/index.html">Déjà un compte? Connectez-vous!</a></h2>
+            <p id="message-error"></p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
